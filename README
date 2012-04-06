@@ -1,0 +1,39 @@
+
+NAME
+    similarity - find and print text similarity between sets of strings
+
+SYNOPSIS
+    similarity combfile
+
+    similarity reffile testfile
+
+DESCRIPTION
+    similarity is a program that finds the Damerau-Levenshtein distance
+    between strings.
+
+    The first form of invocation treats the contents of the file
+    'combfile' to be strings that each needs to be compared with all the
+    others in the file.
+
+    The second form treats those from the file 'reffile' to be correct
+    reference strings, against which those in the file 'testfile' should
+    be compared.
+
+    In all cases, the input files should have one string per line.
+    Blank lines are ignored.  The program does trim the strings, but
+    users should take care of non-printable characters themselves.
+
+    The output will be one line printed for each combination of strings,
+    and has the following format:
+
+        pd d tl rl tstr rstr
+
+    where, 'd' is the Damerau-Levenshtein distance between strings 'tstr'
+    'rstr'; 'tl' and 'rl' are the line numbers of test string 'tstr' and
+    reference string 'rstr', respectively; and 'pd' is calculated as:
+
+        d / (len(tstr) + len(rstr)).
+
+AUTHOR
+    JONNALAGADDA Srinivas <js@ojuslabs.com>
+
