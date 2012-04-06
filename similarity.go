@@ -177,11 +177,11 @@ func updateMinimum(minima []int, d int,
 // prints the three most similar reference strings for each test
 // string.
 func refSimilarity(v1, v2 []string) {
-	for i, s2 := range v2 {
-		minima := make([]int, 0, MIN_SET_SIZE)
-		sv := make([]string, 0, MIN_SET_SIZE)
-		lnums := make([]int, 0, MIN_SET_SIZE)
+	minima := make([]int, 0, MIN_SET_SIZE+1)
+	sv := make([]string, 0, MIN_SET_SIZE+1)
+	lnums := make([]int, 0, MIN_SET_SIZE+1)
 
+	for i, s2 := range v2 {
 		for j, s1 := range v1 {
 			d := distance(s1, s2)
 			minima, sv, lnums = updateMinimum(minima, d, sv, s1, lnums, j)
@@ -194,6 +194,10 @@ func refSimilarity(v1, v2 []string) {
 				float64(d)/float64(ml), d, i+1, lnums[k]+1, s2, s1)
 		}
 		fmt.Printf("----\n")
+
+		minima = minima[:0]
+		sv = sv[:0]
+		lnums = lnums[:0]
 	}
 }
 
