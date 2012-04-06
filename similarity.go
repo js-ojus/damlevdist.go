@@ -240,7 +240,7 @@ DESCRIPTION
         d / (len(tstr) + len(rstr)).
 
 AUTHOR
-    JONNALAGADDA Srinivas <js@ojuslabs.com>
+    JONNALAGADDA Srinivas
 `
 
 	fmt.Printf("%s\n", s)
