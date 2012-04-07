@@ -14,7 +14,7 @@ const INIT_INPUT_SIZE = 64
 func readData(fn string) []string {
 	f, err := os.Open(fn)
 	if nil != err {
-		fmt.Fprintf(os.Stderr, "!! Unable to open the input file: %s; %s\n", os.Args[1], err)
+		fmt.Fprintf(os.Stderr, "!! Unable to open the input file: %s; %s\n", fn, err)
 		os.Exit(-1)
 	}
 	defer f.Close()
